@@ -1,0 +1,354 @@
+/* =========================================================
+   User Management System — Stylesheet
+   Design tokens:
+   - Background:      #F7F8FA
+   - Surface (cards): #FFFFFF
+   - Primary/accent:  #2F5D62 (deep teal)
+   - Primary hover:   #24494D
+   - Danger/delete:   #B3452C (muted rust)
+   - Danger hover:    #93361F
+   - Success:         #2F7D4F
+   - Text primary:    #1E2328
+   - Text muted:      #5B6570
+   - Border:          #DDE2E6
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-primary: #2F5D62;
+  --color-primary-hover: #24494D;
+  --color-danger: #B3452C;
+  --color-danger-hover: #93361F;
+  --color-success: #2F7D4F;
+  --color-success-bg: #E7F4EC;
+  --color-error-bg: #FBEAE6;
+  --color-text: #1E2328;
+  --color-text-muted: #5B6570;
+  --color-border: #DDE2E6;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(30, 35, 40, 0.08);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Header ---------- */
+
+.app-header {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 28px 0;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.app-header .subtitle {
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+/* ---------- Layout ---------- */
+
+main.container {
+  flex: 1;
+  padding-top: 24px;
+  padding-bottom: 40px;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.card-title {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card-header-row .card-title {
+  margin-bottom: 0;
+}
+
+/* ---------- Messages ---------- */
+
+.message {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  font-size: 0.92rem;
+}
+
+.message.success {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.message.error {
+  background-color: var(--color-error-bg);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
+
+/* ---------- Form ---------- */
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  transition: border-color 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(47, 93, 98, 0.15);
+}
+
+input.invalid {
+  border-color: var(--color-danger);
+}
+
+.field-error {
+  display: block;
+  min-height: 18px;
+  color: var(--color-danger);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-bg);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  padding: 7px 14px;
+  font-size: 0.85rem;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: rgba(47, 93, 98, 0.08);
+}
+
+.btn-edit {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  margin-right: 6px;
+}
+
+.btn-edit:hover:not(:disabled) {
+  background-color: rgba(47, 93, 98, 0.08);
+}
+
+.btn-delete {
+  background-color: var(--color-surface);
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background-color: rgba(179, 69, 44, 0.08);
+}
+
+/* ---------- Table ---------- */
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: var(--color-bg);
+}
+
+.actions-cell {
+  white-space: nowrap;
+}
+
+.empty-state,
+.loading-state {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 24px 12px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Footer ---------- */
+
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+  .app-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  table {
+    font-size: 0.82rem;
+  }
+
+  thead th,
+  tbody td {
+    padding: 8px 6px;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    display: block;
+    width: 100%;
+    margin: 4px 0 0;
+  }
+}
