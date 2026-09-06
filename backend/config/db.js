@@ -6,6 +6,7 @@
 
 const mysql = require("mysql2/promise");
 
+const urlDB='mysql://root:mfGgWsccXeVoNHUgZBDQhEaEnAXjBzOQ@mysql.railway.internal:3306/railway'
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: 'root',
@@ -27,5 +28,7 @@ const pool = mysql.createPool({
     console.error("Failed to connect to MySQL:", err);
   }
 })();
+
+const connection=mysql.createConnection(urlDB)
 
 module.exports = pool;
